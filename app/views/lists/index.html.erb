@@ -1,15 +1,16 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://previews.123rf.com/images/tul/tul1706/tul170600033/79991409-movie-vector-trendy-banner-design-concept-modern-style-with-thin-line-art-icons-on-gradient-colors.jpg);">
   <div class="container">
-    <h1>Here is the <strong>Playlists</strong> of your favorite moves</h1>
+    <h1 class="text-center">Here is the <strong>Playlists</strong> of your favorite moves</h1>
   </div>
 </div>
 
 <% @lists.each do |list| %>
+
+<div class="card">
   <%= link_to list_path(list) do %>
-    <div class="card">
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-        <%= list.name %>
-      </div>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <%= list.name %>
     </div>
+</div>
   <% end %>
 <% end %>
