@@ -12,6 +12,9 @@
         <div>
           <h2><%= movie.title %></h2>
           <p><%= movie.overview %></p>
+          <% movie.bookmarks.each do |bookmark|%>
+            <p class="mt-2">COMMENT: <strong><%= bookmark.comment %></strong></p>
+          <% end %>
         </div>
         <h2 class="card-trip-pricing"><%= movie.rating %></h2>
       </div>
