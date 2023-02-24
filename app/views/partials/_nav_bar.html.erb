@@ -1,0 +1,19 @@
+   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+      <div class="container-fluid">
+        <i class="fa-solid fa-film icon-size"></i>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item active">
+              <% if action_name == "index" || action_name == "new" %>
+                <%= link_to "Create your list", new_list_path(@list), class: "nav-link" %>
+              <% else %>
+                <%= link_to "Add a movie to the list",  new_list_bookmark_path(@list), class: "nav-link" %>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Back to Playlist", lists_path, class: "nav-link" %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
