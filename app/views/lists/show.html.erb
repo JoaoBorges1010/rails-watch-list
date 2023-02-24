@@ -1,22 +1,24 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg);">
   <div class="container">
-    <h1><strong><%= @list.name %></strong></h1>
-    <%= link_to "Add a new movie", new_list_bookmark_path(@list), class: "btn btn-gradient" %>
+    <h1 class="text-center"><strong><%= @list.name %></strong></h1>
   </div>
 </div>
-<div class="grid-container">
-  <% @list.movies.each do |movie| %>
+<div class="grid-container position-relative">
+  <% @list.bookmarks.each do |bookmark| %>
     <div class="card-trip">
-      <img src="<%= movie.poster_url %>">
+      <img src="<%= bookmark.movie.poster_url %>">
       <div class="card-trip-infos">
-        <div>
-          <h2><%= movie.title %></h2>
-          <p><%= movie.overview %></p>
-          <% movie.bookmarks.each do |bookmark|%>
-            <p class="mt-2"><i class="fa-regular fa-bookmark"></i>  <strong><%= bookmark.comment %></strong></p>
-          <% end %>
+        <div class="d-flex flex-column justify-content-between">
+          <div>
+            <h2><%= bookmark.movie.title %></h2>
+            <p><%= bookmark.movie.overview %></p>
+          </div>
+          <p class="mt-2"><i class="fa-regular fa-bookmark"></i>  <strong><%= bookmark.comment %></strong></p>
         </div>
-        <h2 class="card-trip-pricing"><%= movie.rating %></h2>
+        <h2 class="card-trip-pricing"><%= bookmark.movie.rating %></h2>
+        <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete"} do %>
+          <i class="fa-regular fa-trash-can position-absolute top-0 end-0 m-1 text-dark"></i>
+        <% end %>
       </div>
     </div>
   <% end %>
