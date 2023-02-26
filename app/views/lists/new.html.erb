@@ -5,12 +5,10 @@
         <h2 class="text-center">Create your list</h2>
         <p class="text-center">The list with your favorite movies</p>
       </div>
-      <form class="form-inline" method="post">
-        <%= simple_form_for (@list) do |f| %>
+        <%= simple_form_for (@list), html: { class: "form-inline"} do |f| %>
           <div class="form-group"><%= f.input :name, class:"form-control", label: false %></div>
           <div class="form-group mb-3"><%= f.submit class:"btn btn-primary" %></div>
         <% end %>
-      </form>
     </div>
   </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
